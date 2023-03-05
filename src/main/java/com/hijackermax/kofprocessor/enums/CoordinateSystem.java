@@ -70,6 +70,20 @@ public enum CoordinateSystem {
     }
 
     /**
+     * Conducts search of {@link CoordinateSystem} by provided EPSG id
+     *
+     * @param id target EPSG id
+     * @return {@link CoordinateSystem} that matches provided EPSG id,
+     * or throws {@link IllegalArgumentException} if EPSG id is unknown
+     */
+    public static CoordinateSystem findByEPSGId(int id) {
+        return Stream.of(values())
+                .filter(type -> type.id == id)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Unknown EPSG id = %d", id)));
+    }
+
+    /**
      * Returns EPSG id
      *
      * @return EPSG id of instance of {@link CoordinateSystem}
@@ -80,6 +94,7 @@ public enum CoordinateSystem {
 
     /**
      * Returns reference id
+     *
      * @return reference id in "Coordinated Approach for Spatial Information" of instance of {@link CoordinateSystem}
      */
     public int getReferenceId() {
@@ -88,6 +103,7 @@ public enum CoordinateSystem {
 
     /**
      * Returns name
+     *
      * @return name of coordinate system
      */
     public String getName() {
@@ -96,6 +112,7 @@ public enum CoordinateSystem {
 
     /**
      * Returns configuration line for coordinate transformation
+     *
      * @return configuration for coordinate transformation of instance of {@link CoordinateSystem}
      */
     public String getData() {

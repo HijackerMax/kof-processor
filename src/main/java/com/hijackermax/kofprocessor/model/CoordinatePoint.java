@@ -33,7 +33,19 @@ public final class CoordinatePoint {
     }
 
     /**
+     * Creates instance of {@link CoordinatePoint} with provided values
+     *
+     * @param x x-axis value
+     * @param y y-axis value
+     * @param z z-axis value
+     */
+    public CoordinatePoint(double x, double y, double z) {
+        this(null, x, y, z);
+    }
+
+    /**
      * Returns point name
+     *
      * @return Point name
      */
     public String getName() {
@@ -42,6 +54,7 @@ public final class CoordinatePoint {
 
     /**
      * Return x value
+     *
      * @return x-axis value, in case of WSG84 represent latitude
      */
     public double getX() {
@@ -50,6 +63,7 @@ public final class CoordinatePoint {
 
     /**
      * Return y value
+     *
      * @return y-axis value, in case of WSG84 represent longitude
      */
     public double getY() {
@@ -58,6 +72,7 @@ public final class CoordinatePoint {
 
     /**
      * Return z value
+     *
      * @return z-axis value
      */
     public double getZ() {
